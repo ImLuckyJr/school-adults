@@ -1,0 +1,98 @@
+html {
+    font-family:              Roboto, sans-serif;
+    font-size:                16px;
+    word-spacing:             1px;
+    -ms-text-size-adjust:     100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing:  grayscale;
+    -webkit-font-smoothing:   antialiased;
+    box-sizing:               border-box;
+    width:                    100%;
+    height:                   100%;
+}
+
+@import "fonts";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin:     0;
+}
+
+header {
+    font-size: 1.5rem;
+
+    .link {
+        &__item {
+            &--active {
+                a {
+                    color: #F76D6D;
+                }
+            }
+
+            &:hover {
+                a {
+                    color: #F76D6D !important;
+                }
+            }
+
+            &--profile {
+                a::before {
+                    display:          inline-block;
+                    content:          ' ';
+                    background-image: url("~assets/images/user-icon.svg");
+                    background-size:  30px 36px;
+                    width:            30px;
+                    height:           36px;
+                    margin-right:     1rem;
+                }
+
+                &:hover {
+                    a::before {
+                        background-image: url("~assets/images/user-icon-hover.svg");
+                    }
+                }
+            }
+        }
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'AdamCG', sans-serif;
+    font-weight: 400;
+    color:       #24315E;
+}
+
+h2 {
+    font-size:   48px;
+    line-height: 58px;
+}
+
+.btn {
+    &--round {
+        display:         flex;
+        flex-direction:  row;
+        justify-content: center;
+        align-items:     center;
+
+        button {
+            width:            170px;
+            height:           170px;
+            background-color: #F76D6D;
+            border-radius:    50%;
+            color:            white;
+            font-size:        28px;
+            line-height:      32px;
+            box-shadow:       0 0 15px rgba(0, 0, 0, 0.45);
+        }
+    }
+}
+
+.title {
+    width:          100%;
+    text-align:     center;
+    display:        block;
+    text-transform: uppercase;
+    margin-bottom:  4rem;
+}
