@@ -21,11 +21,11 @@
                     </p>
                 </div>
                 
-                <div class="btn btn--round ask-question">
+                <div class="btn btn--circle ask-question">
                     <button type="button">Задать вопрос</button>
                 </div>
                 
-                <div class="btn btn--round to-courses">
+                <div class="btn btn--circle to-courses">
                     <button type="button">Перейти к курсам</button>
                 </div>
             </div>
@@ -168,7 +168,7 @@
         </section>
         <!--Как проходит обучение-->
         
-        <!--Как проходит обучение-->
+        <!--Кто мы?-->
         <section
             id="who-we-are"
             class="section flex flex-row mt-52"
@@ -237,13 +237,61 @@
                 <SvgWhoWeStar/>
             </div>
         </section>
-        <!--Как проходит обучение-->
+        <!--Кто мы?-->
+        
+        <!--Ask a question-->
+        <section
+            id="ask-question"
+            class="section flex flex-row mt-52"
+        >
+            <div class="learning w-full">
+                <div class="title">
+                    <h2>Задать вопрос</h2>
+                </div>
+                
+                <div class="flex flex-col items-center gap-y-5">
+                    <div class="2xl:w-2/4 xl:w-2/4 lg:w-1/2 md:w-full sm:w-full">
+                        <InputDefault
+                            v-model="fio"
+                            placeholder="ФИО"
+                        />
+                    </div>
+                    
+                    <div class="2xl:w-2/4 xl:w-2/4 lg:w-1/2 md:w-full sm:w-full">
+                        <InputDefault
+                            v-model="email"
+                            placeholder="E-mail"
+                        />
+                    </div>
+                    
+                    <div class="2xl:w-2/4 xl:w-2/4 lg:w-1/2 md:w-full sm:w-full">
+                        <TextareaDefault
+                            v-model="question"
+                            placeholder="Если есть вопрос – напиши здесь"
+                            input-classes="dark-border"
+                        />
+                    </div>
+                    
+                    <div class="2xl:w-2/4 xl:w-2/4 lg:w-1/2 md:w-full sm:w-full justify-items-end">
+                        <ButtonDefault label="Отправить" align="right"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Кто мы?-->
     </div>
 </template>
 
 <script>
 export default {
     name: 'index',
+    data() {
+        return {
+            fio:      null,
+            email:    null,
+            question: null,
+        };
+    },
 };
 </script>
 
@@ -312,7 +360,7 @@ export default {
         
         .to-courses {
             bottom: 0;
-            left:   130px;
+            left:   110px;
         }
     }
     

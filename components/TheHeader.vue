@@ -96,10 +96,27 @@
         <div class="header__right flex flex-row">
             <div class="links flex flex-row items-stretch">
                 <div class="link__item link__item--profile flex items-center">
-                    <a
-                        class="flex items-center"
-                        href="#"
-                    >Войти</a>
+                    <b-dropdown
+                        size="lg"
+                        right
+                        text="Вход"
+                        no-caret
+                        variant="link"
+                        toggle-class="text-decoration-none"
+                    >
+                        <b-dropdown-item href="login">Вход</b-dropdown-item>
+                        <b-dropdown-item href="register">Регистрация</b-dropdown-item>
+                    </b-dropdown>
+                    <!--<b-button-->
+                    <!--    v-b-popover.hover.focus.bottom="popoverConfig"-->
+                    <!--    variant="primary"-->
+                    <!--    style="max-width: 300px;"-->
+                    <!--&gt;Войти-->
+                    <!--</b-button>-->
+                    <!--<a-->
+                    <!--    class="flex items-center"-->
+                    <!--    href="#"-->
+                    <!--&gt;</a>-->
                 </div>
             </div>
         </div>
@@ -108,7 +125,23 @@
 
 <script>
 export default {
-    name: 'TheHeader',
+    name:     'TheHeader',
+    computed: {
+        popoverConfig() {
+            return {
+                html:    true,
+                offset:  -100,
+                title:   () => {
+                    // Note this is called only when the popover is opened
+                    return 'Hello <b>Popover:</b> ';
+                },
+                content: () => {
+                    // Note this is called only when the popover is opened
+                    return 'The date is:<br><em>' + new Date() + '</em>';
+                },
+            };
+        },
+    },
 };
 </script>
 

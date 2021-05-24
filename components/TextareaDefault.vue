@@ -1,0 +1,59 @@
+<template>
+    <div role="group">
+        <label
+            v-if="label"
+            @click="$refs[refName].focus()"
+        >{{ label }}</label>
+        <b-form-textarea
+            :ref="refName"
+            v-model="value"
+            class="dark-border"
+            :placeholder="placeholder"
+            :type="type"
+            @input="val => $emit('input', val)"
+        ></b-form-textarea>
+    </div>
+</template>
+
+<script>
+export default {
+    name:  'TextareaDefault',
+    props: {
+        value: {
+            required: true,
+        },
+        
+        label: {
+            type:    String,
+            default: '',
+        },
+        
+        placeholder: {
+            type:    String,
+            default: 'Введите данные',
+        },
+        
+        refName: {
+            type:    String,
+            default: 'TextareaDefault',
+        },
+        
+        type: {
+            type:    String,
+            default: 'text',
+        },
+        
+        inputClasses: {
+            type:    String,
+            default: '',
+        },
+    },
+    data() {
+        return {};
+    },
+};
+</script>
+
+<style scoped>
+
+</style>

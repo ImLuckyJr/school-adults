@@ -41,7 +41,14 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+  
+    'bootstrap-vue/nuxt',
   ],
+  
+  bootstrapVue: {
+    bootstrapCSS: true, // Or `css: false`
+    bootstrapVueCSS: false // Or `bvCSS: false`
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
