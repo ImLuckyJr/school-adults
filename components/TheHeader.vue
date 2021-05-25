@@ -66,25 +66,39 @@
                 </svg>
             </div>
             <div class="links flex flex-row items-stretch gap-9">
-                <div class="link__item link__item--active flex items-center">
-                    <a
-                        class=""
-                        href="#"
-                    >Главная</a>
+                <div
+                    :class="{ 'link__item--active': $route.name === 'index' }"
+                    class="link__item flex items-center"
+                >
+                    <NuxtLink
+                        v-if="$route.name !== 'index'"
+                        to="/"
+                    >Главная
+                    </NuxtLink>
+                    <span v-else>Главная</span>
                 </div>
-                <div class="link__item flex items-center">
+                <div
+                    :class="{ 'link__item--active': $route.name === 'courses' }"
+                    class="link__item flex items-center"
+                >
                     <a
                         class=""
                         href="#"
                     >Курсы</a>
                 </div>
-                <div class="link__item flex items-center">
+                <div
+                    :class="{ 'link__item--active': $route.name === 'contacts' }"
+                    class="link__item flex items-center"
+                >
                     <a
                         class=""
                         href="#"
                     >Контакты</a>
                 </div>
-                <div class="link__item flex items-center">
+                <div
+                    :class="{ 'link__item--active': $route.name === 'help' }"
+                    class="link__item flex items-center"
+                >
                     <a
                         class=""
                         href="#"
@@ -95,28 +109,37 @@
         
         <div class="header__right flex flex-row">
             <div class="links flex flex-row items-stretch">
-                <div class="link__item link__item--profile flex items-center">
-                    <b-dropdown
-                        size="lg"
+                <div
+                    :class="{ 'link__item--active': /login|register/.test($route.name) }"
+                    class="link__item link__item--profile flex items-center justify-end"
+                >
+                    <v-menu
                         right
-                        text="Вход"
-                        no-caret
-                        variant="link"
-                        toggle-class="text-decoration-none"
+                        :nudge-left="50"
+                        content-class="header-menu"
+                        offset-y
                     >
-                        <b-dropdown-item href="login">Вход</b-dropdown-item>
-                        <b-dropdown-item href="register">Регистрация</b-dropdown-item>
-                    </b-dropdown>
-                    <!--<b-button-->
-                    <!--    v-b-popover.hover.focus.bottom="popoverConfig"-->
-                    <!--    variant="primary"-->
-                    <!--    style="max-width: 300px;"-->
-                    <!--&gt;Войти-->
-                    <!--</b-button>-->
-                    <!--<a-->
-                    <!--    class="flex items-center"-->
-                    <!--    href="#"-->
-                    <!--&gt;</a>-->
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-btn
+                                v-bind="attrs"
+                                v-on="on"
+                                style="text-transform: capitalize"
+                                text
+                            >
+                                Вход
+                            </v-btn>
+                        </template>
+                        
+                        <v-list>
+                            <v-list-item
+                                v-for="(item, index) in authMenu"
+                                :key="index"
+                                :to="item.to"
+                            >
+                                <v-list-item-title style="text-align: right">{{ item.label }}</v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
                 </div>
             </div>
         </div>
@@ -125,26 +148,151 @@
 
 <script>
 export default {
-    name:     'TheHeader',
+    name: 'TheHeader',
+    data() {
+        return {
+        
+        };
+    },
     computed: {
-        popoverConfig() {
-            return {
-                html:    true,
-                offset:  -100,
-                title:   () => {
-                    // Note this is called only when the popover is opened
-                    return 'Hello <b>Popover:</b> ';
+        authMenu() {
+            return [
+                {
+                    to:    'login',
+                    label: 'Вход',
                 },
-                content: () => {
-                    // Note this is called only when the popover is opened
-                    return 'The date is:<br><em>' + new Date() + '</em>';
+                {
+                    to:    'register',
+                    label: 'Регистрация',
                 },
-            };
+            ];
         },
     },
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+header {
+    font-size: 1.5rem;
+    
+    .link {
+        $self: &;
+        
+        &__item {
+            text-decoration: none !important;
+            
+            a {
+                text-decoration: none !important;
+            }
+            
+            > span {
+                cursor: pointer;
+            }
+            
+            &--active {
+                > span,
+                > a {
+                    color: #F76D6D;
+                }
+                
+                #{$self}--profile {
+                    .dropdown {
+                        color: #F76D6D !important;
+                        
+                        &::before {
+                            background-image: url("~/assets/images/user-icon-hover.svg");
+                        }
+                    }
+                }
+            }
+            
+            &:hover,
+            li:hover {
+                > span,
+                > a {
+                    color: #F76D6D !important;
+                }
+            }
+            
+            &--profile {
+                .v-btn {
+                    color:          inherit !important;
+                    font-size:      1.5rem !important;
+                    text-indent:    0 !important;
+                    letter-spacing: normal !important;
+                    
+                    &.btn {
+                        transition: none !important;
+                    }
+                    
+                    &::after {
+                        display: none !important;
+                    }
+                    
+                    &:hover {
+                        background-color: transparent !important;
+                        color:            #F76D6D !important;
+                        
+                        &::before {
+                            background-image: url("~/assets/images/user-icon-hover.svg");
+                        }
+                    }
+                    
+                    &::before {
+                        position:         relative;
+                        display:          inline-block;
+                        content:          ' ';
+                        background-image: url("~/assets/images/user-icon.svg");
+                        background-size:  30px 36px;
+                        width:            30px;
+                        height:           36px;
+                        margin-right:     0.5rem;
+                        opacity:          1 !important;
+                        background-color: transparent !important;
+                    }
+                    
+                    &__content {
+                        font-weight: normal !important;
+                    }
+                }
+                
+                li {
+                    text-align: right;
+                    
+                    &:hover a {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
 
+.header-menu {
+    box-shadow:    none !important;
+    border:        3px solid #A8D1E7 !important;
+    border-radius: 10px !important;
+    margin-top:    0.2rem;
+    
+    .v-list {
+        margin-top:     0 !important;
+        padding-top:    0 !important;
+        margin-bottom:  0 !important;
+        padding-bottom: 0 !important;
+        
+        &:hover {
+            background-color: transparent;
+        }
+        
+        &-item__title {
+            font-size:   24px;
+            line-height: 32px;
+            
+            &:hover {
+                background-color: transparent;
+                color:            #F76D6D !important;
+            }
+        }
+    }
+}
 </style>

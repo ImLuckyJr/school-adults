@@ -40,6 +40,7 @@ export default {
             });
             classes[`btn-align-${ this.align }`] = true;
             classes['btn--round'] = this.round;
+            classes['dark-border'] = this.darkBorder;
             
             return classes;
         },

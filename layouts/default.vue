@@ -1,17 +1,16 @@
 <template>
-    <div>
+    <v-app>
         <div class="container main-container mx-auto">
             <TheHeader/>
             <Nuxt/>
         </div>
         <TheFooter/>
-    </div>
+    </v-app>
 </template>
 
 <style lang="scss">
 .main-container {
-    min-height:        100vh;
-    margin-bottom: -404px;
-    padding-bottom: 404px;
+    min-height:     100vh;
+    padding-bottom: 302px;
 }
 </style>

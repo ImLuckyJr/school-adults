@@ -1,31 +1,62 @@
-input.form-control {
-    border-radius: 15px;
-    color:         #374785;
-    border:        2px solid #A8D1E7;
-    line-height:   32px;
-    font-size:     24px;
-    padding:       0.5rem 1.4rem;
-    position:      relative;
-    width:         100%;
+.v-input {
+    $self: &;
+    //width:         100%;
 
-    &::placeholder {
-        font-size: 24px;
-        color:     #879fee;
-    }
+    &__slot {
+        border-radius: 15px !important;
+        color:         #374785 !important;
+        border:        2px solid #A8D1E7 !important;
+        line-height:   32px !important;
+        font-size:     24px !important;
+        padding:       0.5rem 1.4rem !important;
+        position:      relative !important;
+        box-shadow:    none !important;
+        outline:       none !important;
+        width:         100% !important;
 
-    &:active,
-    &:focus {
-        &:before {
-            content:       ' ';
-            width:         100%;
-            height:        100%;
-            position:      absolute;
-            left:          0;
-            right:         0;
-            top:           0;
-            bottom:        0;
-            border-radius: 15px;
-            box-shadow:    0 0 7px #A8D1E7;
+        input {
+            &::placeholder {
+                font-size: 24px;
+                color:     #879fee;
+            }
         }
     }
+
+    &.dark-border {
+        #{$self}__slot {
+            border-color: #374785 !important;
+
+            input {
+                &::placeholder {
+                    color: #6d7caa;
+                }
+            }
+        }
+    }
+
+    //
+
+
+    //
+    //&.dark-border {
+    //    &::placeholder {
+    //        color: #6d7caa;
+    //    }
+    //}
+    //
+    //&:active,
+    //&:focus {
+    //    &:before {
+    //        content:       ' ';
+    //        width:         100%;
+    //        height:        100%;
+    //        position:      absolute;
+    //        left:          0;
+    //        right:         0;
+    //        top:           0;
+    //        bottom:        0;
+    //        border-radius: 15px;
+    //        box-shadow:    0 0 7px #A8D1E7;
+    //    }
+    //}
 }

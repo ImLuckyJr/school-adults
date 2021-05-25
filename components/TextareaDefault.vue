@@ -4,14 +4,14 @@
             v-if="label"
             @click="$refs[refName].focus()"
         >{{ label }}</label>
-        <b-form-textarea
+        <v-textarea
+            :value="value"
             :ref="refName"
-            v-model="value"
             class="dark-border"
             :placeholder="placeholder"
-            :type="type"
             @input="val => $emit('input', val)"
-        ></b-form-textarea>
+            solo
+        ></v-textarea>
     </div>
 </template>
 

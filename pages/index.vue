@@ -56,31 +56,39 @@
                 <div class="skills flex flex-row gap-3 justify-center">
                     <div class="skill">
                         <div class="skill__background"></div>
-                        <div class="skill__icon">
-                            <SvgSkillStrategy/>
+                        <div class="skill__wrapper">
+                            <div class="skill__icon">
+                                <SvgSkillStrategy/>
+                            </div>
+                            <div class="skill__name">Выстраивание стратегий</div>
                         </div>
-                        <div class="skill__name">Выстраивание стратегий</div>
                     </div>
                     <div class="skill">
                         <div class="skill__background"></div>
-                        <div class="skill__icon">
-                            <SvgSkillDocuments/>
+                        <div class="skill__wrapper">
+                            <div class="skill__icon">
+                                <SvgSkillDocuments/>
+                            </div>
+                            <div class="skill__name">Работа с документами</div>
                         </div>
-                        <div class="skill__name">Работа с документами</div>
                     </div>
                     <div class="skill">
                         <div class="skill__background"></div>
-                        <div class="skill__icon">
-                            <SvgSkillFinances/>
+                        <div class="skill__wrapper">
+                            <div class="skill__icon">
+                                <SvgSkillFinances/>
+                            </div>
+                            <div class="skill__name">Управление финансами</div>
                         </div>
-                        <div class="skill__name">Управление финансами</div>
                     </div>
                     <div class="skill">
                         <div class="skill__background"></div>
-                        <div class="skill__icon">
-                            <SvgSkillUniversity/>
+                        <div class="skill__wrapper">
+                            <div class="skill__icon">
+                                <SvgSkillUniversity/>
+                            </div>
+                            <div class="skill__name">Поступление в университет</div>
                         </div>
-                        <div class="skill__name">Поступление в университет</div>
                     </div>
                 </div>
             </div>
@@ -111,44 +119,54 @@
                 
                 <div class="steps flex flex-col">
                     <div class="step">
-                        <div class="step__counter">
-                            <div class="step__counter__number">1</div>
-                            <div class="step__counter__name">Динамичные курсы</div>
-                        </div>
-                        <div class="step__info">
-                            Мы считаем, что видео курсы должны быть такие же кинематографичные, как и видео каналов
-                            миллиоников на YouTube. Никакого скучного белого фона и преподавателя с бумажкой.
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step__counter">
-                            <div class="step__counter__number">2</div>
-                            <div class="step__counter__name">Домашнее задание</div>
-                        </div>
-                        <div class="step__info">
-                            Для закрепления информации после каждого урока мы советуем выполнять задания. Если не
-                            хватает времени – сделай позже. Знания закрепляются на практике, так что не пренебрегай
-                            этим.
+                        <div class="step__wrapper">
+                            <div class="step__counter">
+                                <div class="step__counter__number">1</div>
+                                <div class="step__counter__name">Динамичные курсы</div>
+                            </div>
+                            <div class="step__info">
+                                Мы считаем, что видео курсы должны быть такие же кинематографичные, как и видео каналов
+                                миллиоников на YouTube. Никакого скучного белого фона и преподавателя с бумажкой.
+                            </div>
                         </div>
                     </div>
                     <div class="step">
-                        <div class="step__counter">
-                            <div class="step__counter__number">3</div>
-                            <div class="step__counter__name">Видео-уроки в Zoom</div>
-                        </div>
-                        <div class="step__info">
-                            В конце каждой темы курса будет проведена видео-встреча в Zoom с менторами, на которой будет
-                            закреплен полученный материал. На ней менторы также ответят на все ваши вопросы.
+                        <div class="step__wrapper">
+                            <div class="step__counter">
+                                <div class="step__counter__number">2</div>
+                                <div class="step__counter__name">Домашнее задание</div>
+                            </div>
+                            <div class="step__info">
+                                Для закрепления информации после каждого урока мы советуем выполнять задания. Если не
+                                хватает времени – сделай позже. Знания закрепляются на практике, так что не пренебрегай
+                                этим.
+                            </div>
                         </div>
                     </div>
                     <div class="step">
-                        <div class="step__counter">
-                            <div class="step__counter__number">4</div>
-                            <div class="step__counter__name">Обратная связь</div>
+                        <div class="step__wrapper">
+                            <div class="step__counter">
+                                <div class="step__counter__number">3</div>
+                                <div class="step__counter__name">Видео-уроки в Zoom</div>
+                            </div>
+                            <div class="step__info">
+                                В конце каждой темы курса будет проведена видео-встреча в Zoom с менторами, на которой
+                                будет
+                                закреплен полученный материал. На ней менторы также ответят на все ваши вопросы.
+                            </div>
                         </div>
-                        <div class="step__info">
-                            Любое обучение невозможно без исправления ошибок и советов наставников. Поэтому в чате вы
-                            сможете задать вопрос куратору, а также попросить помощи у своих “однокурсников.”
+                    </div>
+                    <div class="step">
+                        <div class="step__wrapper">
+                            <div class="step__counter">
+                                <div class="step__counter__number">4</div>
+                                <div class="step__counter__name">Обратная связь</div>
+                            </div>
+                            <div class="step__info">
+                                Любое обучение невозможно без исправления ошибок и советов наставников. Поэтому в чате
+                                вы
+                                сможете задать вопрос куратору, а также попросить помощи у своих “однокурсников.”
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -254,6 +272,7 @@
                         <InputDefault
                             v-model="fio"
                             placeholder="ФИО"
+                            hide-details
                         />
                     </div>
                     
@@ -261,6 +280,7 @@
                         <InputDefault
                             v-model="email"
                             placeholder="E-mail"
+                            hide-details
                         />
                     </div>
                     
@@ -269,11 +289,15 @@
                             v-model="question"
                             placeholder="Если есть вопрос – напиши здесь"
                             input-classes="dark-border"
+                            hide-details
                         />
                     </div>
                     
                     <div class="2xl:w-2/4 xl:w-2/4 lg:w-1/2 md:w-full sm:w-full justify-items-end">
-                        <ButtonDefault label="Отправить" align="right"/>
+                        <ButtonDefault
+                            align="right"
+                            label="Отправить"
+                        />
                     </div>
                 </div>
             </div>
@@ -426,7 +450,16 @@ export default {
                 height:            240px;
                 background-image:  url('~assets/images/skill-background.svg');
                 background-repeat: no-repeat;
-                z-index:           -1;
+                z-index:           1;
+            }
+            
+            &__wrapper {
+                position:        relative;
+                display:         flex;
+                flex-direction:  column;
+                justify-content: center;
+                align-items:     center;
+                z-index:         2;
             }
             
             &:first-child {
@@ -487,15 +520,13 @@ export default {
         .step {
             $self:            &;
             position:         relative;
-            display:          flex;
-            flex-direction:   row;
             padding:          25px;
             border:           5px solid transparent;
             //border-top:     5px solid #374785;
             //border-bottom:  5px solid #374785;
             margin-top:       -5px;
             border-radius:    150px;
-            background-color: #fff;
+            background-color: transparent !important;
             background-clip:  padding-box;
             
             &:before {
@@ -505,9 +536,29 @@ export default {
                 right:         -5px;
                 bottom:        -5px;
                 left:          -5px;
-                z-index:       -1;
+                z-index:       1;
                 border-radius: inherit; /* !importanté */
-                background:    linear-gradient(to left, transparent 6%, #374785 6%, #374785 100%);
+                background:    linear-gradient(to left, transparent 8%, #374785 8%, #374785 100%);
+            }
+            
+            &:after {
+                content:          '';
+                position:         absolute;
+                top:              0;
+                right:            0;
+                bottom:           0;
+                left:             0;
+                z-index:          2;
+                border-radius:    inherit; /* !importanté */
+                background-color: #fff;
+            }
+            
+            &__wrapper {
+                position:       relative;
+                display:        flex;
+                flex-direction: row;
+                align-items:    center;
+                z-index:        100;
             }
             
             &:first-child {
@@ -520,7 +571,9 @@ export default {
             }
             
             &:nth-child(2n) {
-                flex-direction: row-reverse;
+                .step__wrapper {
+                    flex-direction: row-reverse;
+                }
                 
                 .step__counter {
                     margin-right: 0;
@@ -531,7 +584,7 @@ export default {
                 }
                 
                 &:before {
-                    background: linear-gradient(to right, transparent 6%, #374785 6%, #374785 100%);
+                    background: linear-gradient(to right, transparent 8%, #374785 8%, #374785 100%);
                 }
             }
             

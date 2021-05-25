@@ -4,13 +4,16 @@
             v-if="label"
             @click="$refs[refName].focus()"
         >{{ label }}</label>
-        <b-form-input
-            v-model="value"
+        <v-text-field
+            :ref="refName"
+            :class="getClasses"
+            :hide-details="hideDetails"
             :placeholder="placeholder"
             :type="type"
-            :ref="refName"
+            :value="value"
+            solo
             @input="val => $emit('input', val)"
-        ></b-form-input>
+        ></v-text-field>
     </div>
 </template>
 
@@ -41,9 +44,35 @@ export default {
             type:    String,
             default: 'text',
         },
+        
+        inputClasses: {
+            type:    String,
+            default: '',
+        },
+        
+        darkBorder: {
+            type:    Boolean,
+            default: false,
+        },
+        
+        hideDetails: {
+            type:    Boolean,
+            default: false,
+        },
     },
     data() {
         return {};
+    },
+    computed: {
+        getClasses() {
+            const classes = {};
+            this.inputClasses.split(' ').forEach(v => {
+                classes[v] = true;
+            });
+            classes['dark-border'] = this.darkBorder;
+            
+            return classes;
+        },
     },
 };
 </script>
