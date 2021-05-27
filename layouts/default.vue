@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <div class="container main-container mx-auto">
+        <div class="tw-container main-container tw-mx-auto">
             <TheHeader/>
             <Nuxt/>
         </div>

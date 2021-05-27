@@ -1,7 +1,7 @@
 <template>
-    <header class="flex flex-row justify-between py-5">
-        <div class="header__left flex flex-row">
-            <div class="logo 2xl:mr-32 xl:mr-32 lg:mr-24 md:mr-24 sm:mr-16">
+    <header class="tw-flex tw-flex-row tw-justify-between tw-py-5">
+        <div class="header__left tw-flex tw-flex-row">
+            <div class="logo 2xl:tw-mr-32 xl:tw-mr-32 lg:tw-mr-24 md:tw-mr-24 sm:tw-mr-16">
                 <svg
                     fill="none"
                     height="85"
@@ -65,10 +65,10 @@
                     />
                 </svg>
             </div>
-            <div class="links flex flex-row items-stretch gap-9">
+            <div class="links tw-flex tw-flex-row tw-items-stretch tw-gap-9">
                 <div
                     :class="{ 'link__item--active': $route.name === 'index' }"
-                    class="link__item flex items-center"
+                    class="link__item tw-flex tw-items-center"
                 >
                     <NuxtLink
                         v-if="$route.name !== 'index'"
@@ -79,16 +79,18 @@
                 </div>
                 <div
                     :class="{ 'link__item--active': $route.name === 'courses' }"
-                    class="link__item flex items-center"
+                    class="link__item tw-flex tw-items-center"
                 >
-                    <a
-                        class=""
-                        href="#"
-                    >Курсы</a>
+                    <NuxtLink
+                        v-if="$route.name !== 'courses'"
+                        to="/courses"
+                    >Курсы
+                    </NuxtLink>
+                    <span v-else>Курсы</span>
                 </div>
                 <div
                     :class="{ 'link__item--active': $route.name === 'contacts' }"
-                    class="link__item flex items-center"
+                    class="link__item tw-flex tw-items-center"
                 >
                     <a
                         class=""
@@ -97,7 +99,7 @@
                 </div>
                 <div
                     :class="{ 'link__item--active': $route.name === 'help' }"
-                    class="link__item flex items-center"
+                    class="link__item tw-flex tw-items-center"
                 >
                     <a
                         class=""
@@ -107,11 +109,11 @@
             </div>
         </div>
         
-        <div class="header__right flex flex-row">
-            <div class="links flex flex-row items-stretch">
+        <div class="header__right tw-flex tw-flex-row">
+            <div class="links tw-flex tw-flex-row tw-items-stretch">
                 <div
                     :class="{ 'link__item--active': /login|register/.test($route.name) }"
-                    class="link__item link__item--profile flex items-center justify-end"
+                    class="link__item link__item--profile tw-flex tw-items-center tw-justify-end"
                 >
                     <v-menu
                         right
@@ -150,9 +152,11 @@
 export default {
     name: 'TheHeader',
     data() {
-        return {
-        
-        };
+        return {};
+    },
+    created() {
+        console.log('this.$route');
+        console.log(this.$route);
     },
     computed: {
         authMenu() {

@@ -3,7 +3,7 @@
         <!--О нас-->
         <section
             id="main"
-            class="section flex flex-row justify-between mt-28"
+            class="section tw-flex tw-flex-row tw-justify-between tw-mt-28"
         >
             <div class="about-us">
                 <div class="title">
@@ -29,7 +29,7 @@
                     <button type="button">Перейти к курсам</button>
                 </div>
             </div>
-            <div class="advices pt-6">
+            <div class="advices tw-pt-6">
                 <SvgMainAdvices/>
             </div>
             
@@ -46,14 +46,14 @@
         <!--Чему вас научим-->
         <section
             id="what-you-learn"
-            class="section flex flex-row mt-52"
+            class="section tw-flex tw-flex-row tw-mt-52"
         >
-            <div class="learning w-full">
+            <div class="learning tw-w-full">
                 <div class="title">
                     <h2>Чему мы вас научим?</h2>
                 </div>
                 
-                <div class="skills flex flex-row gap-3 justify-center">
+                <div class="skills tw-flex tw-flex-row tw-gap-3 tw-justify-center">
                     <div class="skill">
                         <div class="skill__background"></div>
                         <div class="skill__wrapper">
@@ -110,14 +110,14 @@
         <!--Как проходит обучение-->
         <section
             id="how-you-learn"
-            class="section flex flex-row mt-52"
+            class="section tw-flex tw-flex-row tw-mt-52"
         >
-            <div class="learning w-full">
+            <div class="learning tw-w-full">
                 <div class="title">
                     <h2>Как проходит обучение?</h2>
                 </div>
                 
-                <div class="steps flex flex-col">
+                <div class="steps tw-flex tw-flex-col">
                     <div class="step">
                         <div class="step__wrapper">
                             <div class="step__counter">
@@ -189,20 +189,20 @@
         <!--Кто мы?-->
         <section
             id="who-we-are"
-            class="section flex flex-row mt-52"
+            class="section tw-flex tw-flex-row tw-mt-52"
         >
-            <div class="learning w-full">
+            <div class="learning tw-w-full">
                 <div class="title">
                     <h2>Кто мы?</h2>
                 </div>
                 
-                <div class="teachers flex flex-row flex-wrap justify-between gap-y-10">
-                    <div class="teacher flex items-center 2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full">
+                <div class="teachers tw-flex tw-flex-row tw-flex-wrap tw-justify-between tw-gap-y-10">
+                    <div class="teacher tw-flex tw-items-center 2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full">
                         <div
                             :style="{ 'background-image': `url(${require('~/assets/images/teacher-Egor.png')}` }"
                             class="teacher__avatar"
                         ></div>
-                        <div class="teacher__body flex flex-col">
+                        <div class="teacher__body tw-flex tw-flex-col">
                             <div class="teacher__name">Егор</div>
                             <div class="teacher__info">
                                 Прошел бакалавр, побывал студентом по обмену в Китае, знает
@@ -210,24 +210,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="teacher flex items-center 2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full">
+                    <div class="teacher tw-flex tw-items-center 2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full">
                         <div
                             class="teacher__avatar"
                             style="background-color: black;"
                         ></div>
-                        <div class="teacher__body flex flex-col">
+                        <div class="teacher__body tw-flex tw-flex-col">
                             <div class="teacher__name">Unknown</div>
                             <div class="teacher__info">
                                 Unknown unknown unknown unknown unknown unknown unknown unknown unknown
                             </div>
                         </div>
                     </div>
-                    <div class="teacher flex items-center 2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full">
+                    <div class="teacher tw-flex tw-items-center 2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full">
                         <div
                             :style="{ 'background-image': `url(${require('~/assets/images/teacher-Alexandra.png')}` }"
                             class="teacher__avatar"
                         ></div>
-                        <div class="teacher__body flex flex-col">
+                        <div class="teacher__body tw-flex tw-flex-col">
                             <div class="teacher__name">Александра</div>
                             <div class="teacher__info">
                                 На одной волне со школьниками благодаря большому опыту работы в
@@ -235,12 +235,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="teacher flex items-center 2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full">
+                    <div class="teacher tw-flex tw-items-center 2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full">
                         <div
                             :style="{ 'background-image': `url(${require('~/assets/images/teacher-Maria.png')}` }"
                             class="teacher__avatar"
                         ></div>
-                        <div class="teacher__body flex flex-col">
+                        <div class="teacher__body tw-flex tw-flex-col">
                             <div class="teacher__name">Мария</div>
                             <div class="teacher__info">
                                 Дизайнер, благодаря своему большому опыту, создает удобный и
@@ -260,15 +260,15 @@
         <!--Ask a question-->
         <section
             id="ask-question"
-            class="section flex flex-row mt-52"
+            class="section tw-flex tw-flex-row tw-mt-52"
         >
-            <div class="learning w-full">
+            <div class="learning tw-w-full">
                 <div class="title">
                     <h2>Задать вопрос</h2>
                 </div>
                 
-                <div class="flex flex-col items-center gap-y-5">
-                    <div class="2xl:w-2/4 xl:w-2/4 lg:w-1/2 md:w-full sm:w-full">
+                <div class="tw-flex tw-flex-col tw-items-center tw-gap-y-5">
+                    <div class="2xl:tw-w-2/4 xl:tw-w-2/4 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full">
                         <InputDefault
                             v-model="fio"
                             placeholder="ФИО"
@@ -276,7 +276,7 @@
                         />
                     </div>
                     
-                    <div class="2xl:w-2/4 xl:w-2/4 lg:w-1/2 md:w-full sm:w-full">
+                    <div class="2xl:tw-w-2/4 xl:tw-w-2/4 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full">
                         <InputDefault
                             v-model="email"
                             placeholder="E-mail"
@@ -284,7 +284,7 @@
                         />
                     </div>
                     
-                    <div class="2xl:w-2/4 xl:w-2/4 lg:w-1/2 md:w-full sm:w-full">
+                    <div class="2xl:tw-w-2/4 xl:tw-w-2/4 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full">
                         <TextareaDefault
                             v-model="question"
                             placeholder="Если есть вопрос – напиши здесь"
@@ -293,7 +293,7 @@
                         />
                     </div>
                     
-                    <div class="2xl:w-2/4 xl:w-2/4 lg:w-1/2 md:w-full sm:w-full justify-items-end">
+                    <div class="2xl:tw-w-2/4 xl:tw-w-2/4 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-justify-items-end">
                         <ButtonDefault
                             align="right"
                             label="Отправить"

@@ -1,15 +1,15 @@
 <template>
     <section
         id="register"
-        class="section flex flex-row mt-10"
+        class="section tw-flex tw-flex-row tw-mt-10"
     >
-        <div class="w-full">
+        <div class="tw-w-full tw-mb-32">
             <div class="title">
                 <h2>Регистрация</h2>
             </div>
             
-            <div class="flex flex-row gap-x-32">
-                <div class="2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full flex flex-col">
+            <div class="tw-flex tw-flex-row tw-gap-x-32">
+                <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex tw-flex-col">
                     <InputDefault
                         v-model="lastname"
                         dark-border
@@ -36,11 +36,12 @@
                     />
                 </div>
                 
-                <div class="2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full flex flex-col">
+                <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex tw-flex-col">
                     <InputDefault
                         v-model="email"
                         dark-border
                         label="Email"
+                        type="email"
                         placeholder="Укажите email"
                     />
                     <InputDefault
@@ -66,26 +67,32 @@
                 </div>
             </div>
             
-            <div class="flex flex-row gap-x-32">
-                <div class="2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full flex">
+            <div class="tw-flex tw-flex-row tw-gap-x-32">
+                <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex">
                     <div class="btn-auth google">
                         Продолжить с помощью Google
                     </div>
                 </div>
                 
-                <div class="2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full flex">
+                <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex">
                     <div class="btn-auth vk">
                         Продолжить с помощью ВКонтакте
                     </div>
                 </div>
             </div>
             
-            <div class="flex flex-row">
-                <div class="w-full">
+            <div class="tw-flex tw-flex-row">
+                <div class="tw-w-full">
                     <v-checkbox
                         v-model="agreeTerms"
                         label="Я соглашаюсь с политикой конфиденциальности"
                     ></v-checkbox>
+                </div>
+            </div>
+            
+            <div class="tw-flex tw-flex-row tw-justify-center">
+                <div class="2xl:tw-w-1/3 xl:tw-w-1/3 lg:tw-w-1/3 md:tw-w-1/2 sm:tw-w-full">
+                    <Avatar v-model="avatar"/>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@
         color:            white;
         font-size:        24px;
         line-height:      1em;
-        padding:          15px 30px;
+        //padding:          15px 30px;
     }
 
     &--circle {
@@ -19,7 +19,18 @@
             height:        170px;
             border-radius: 50%;
             font-size:     28px;
-            box-shadow:       0 0 15px rgba(0, 0, 0, 0.45);
+            box-shadow:    0 0 15px rgba(0, 0, 0, 0.45);
+        }
+    }
+
+    &--underline {
+        button {
+            background-color: transparent !important;
+            font-size:        24px;
+            line-height:      32px;
+            color:            #24315E;
+            border-bottom:    2px solid #24315E;
+            border-radius:    0 !important;
         }
     }
 
