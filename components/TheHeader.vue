@@ -154,10 +154,10 @@ export default {
     data() {
         return {};
     },
-    created() {
-        console.log('this.$route');
-        console.log(this.$route);
-    },
+    // created() {
+    //     console.log('this.$route');
+    //     console.log(this.$route);
+    // },
     computed: {
         authMenu() {
             return [
@@ -224,6 +224,7 @@ header {
                     font-size:      1.5rem !important;
                     text-indent:    0 !important;
                     letter-spacing: normal !important;
+                    transition:     none !important;
                     
                     &.btn {
                         transition: none !important;
@@ -288,13 +289,24 @@ header {
             background-color: transparent;
         }
         
-        &-item__title {
-            font-size:   24px;
-            line-height: 32px;
-            
+        &-item {
+            &--active,
             &:hover {
-                background-color: transparent;
-                color:            #F76D6D !important;
+                color: #F76D6D !important;
+                
+                &:before {
+                    opacity: 0;
+                }
+            }
+            
+            &__title {
+                font-size:   24px;
+                line-height: 32px;
+                
+                &:hover {
+                    background-color: transparent;
+                    color:            #F76D6D !important;
+                }
             }
         }
     }
