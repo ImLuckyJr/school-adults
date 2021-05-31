@@ -41,20 +41,13 @@
                             placeholder="__.__.____"
                             ref-name="birthday"
                         />
-                        <!--<InputDefault-->
-                        <!--    v-model="form.birthday"-->
-                        <!--    :rules="formRules.birthday"-->
-                        <!--    dark-border-->
-                        <!--    label="Дата рождения"-->
-                        <!--    placeholder="__.__.____"-->
-                        <!--    ref-name="birthday"-->
-                        <!--/>-->
-                        <InputDefault
+                        <SelectDefault
                             v-model="form.gender"
+                            :options="genders"
                             dark-border
                             label="Пол"
-                            placeholder="Ваш пол"
                             ref-name="gender"
+                            placeholder="Выберите пол"
                         />
                     </div>
                     
@@ -85,6 +78,9 @@
                             placeholder="Укажите пароль"
                             ref-name="password"
                             type="password"
+                            :append-icon="passportFieldType ? 'visibility_off' : 'visibility'"
+                            :type="passportFieldType ? 'password' : 'text'"
+                            @click-append-icon="passportFieldType = !passportFieldType"
                         />
                         <InputDefault
                             v-model="form.passwordConfirm"
@@ -94,6 +90,9 @@
                             placeholder="Укажите пароль"
                             ref-name="passwordConfirm"
                             type="password"
+                            :append-icon="passportFieldType ? 'visibility_off' : 'visibility'"
+                            :type="passportFieldType ? 'password' : 'text'"
+                            @click-append-icon="passportFieldType = !passportFieldType"
                         />
                     </div>
                 </div>
@@ -159,7 +158,7 @@ export default {
                 lastname:        null,
                 name:            null,
                 birthday:        null,
-                gender:          1,
+                gender:          null,
                 email:           null,
                 phone:           null,
                 password:        null,
@@ -173,6 +172,19 @@ export default {
                 name:     250,
                 email:    250,
             },
+            
+            genders: [
+                {
+                    value: 1,
+                    label: 'Женский',
+                },
+                {
+                    value: 2,
+                    label: 'Мужской',
+                },
+            ],
+            
+            passportFieldType: true, // true - hide, false - show
         };
     },
     computed: {

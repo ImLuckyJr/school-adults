@@ -7,6 +7,7 @@
             :rules="rules"
             :value="computedDateFormatted"
             dark-border
+            readonly
             @input="val => $emit('input', val)"
         >
             <template v-slot:append>
@@ -32,7 +33,7 @@
                     <v-date-picker
                         :active-picker.sync="activePicker"
                         :max="new Date().toISOString().substr(0, 10)"
-                        :value="computedDateFormattedForPicker"
+                        :value="value"
                         min="1950-01-01"
                         @change="save"
                         @input="val => $emit('input', val)"
@@ -75,60 +76,16 @@ export default {
         return {
             activePicker: 'YEAR',
             menu:         false,
-            date_:        '',
         };
-    },
-    created() {
-        this.date_ = this.value;
     },
     watch:    {
         menu(val) {
             val && setTimeout(() => (this.activePicker = 'YEAR'));
         },
-        
-        value(newValue) {
-            this.date_ = newValue;
-        },
     },
     computed: {
-        computedDateFormatted: {
-            get() {
-                console.log('this.slashesToDots(this.value)');
-                console.log(this.slashesToDots(this.value));
-                // return this.slashesToDots(this.value);
-                return this.value;
-            },
-            set(newValue) {
-                try {
-                    this.$emit('input', newValue);
-                    // this.date_ = this.dotsToSlashes(this.value);
-                    this.date_ = this.value;
-                }
-                catch (err) {
-                    console.error('ERROR UPDATE DATE IN INPUT');
-                    console.error(err);
-                }
-            },
-        },
-        
-        computedDateFormattedForPicker: {
-            get() {
-                console.log('this.dotsToSlashes(this.value)');
-                console.log(this.dotsToSlashes(this.value));
-                // return this.dotsToSlashes(this.value);
-                return this.value;
-            },
-            set(newValue) {
-                try {
-                    // this.$emit('input', this.dotsToSlashes(newValue));
-                    this.$emit('input', newValue);
-                    this.date_ = newValue;
-                }
-                catch (err) {
-                    console.error('ERROR UPDATE DATE IN INPUT');
-                    console.error(err);
-                }
-            },
+        computedDateFormatted() {
+            return this.slashesToDots(this.value);
         },
     },
     methods:  {

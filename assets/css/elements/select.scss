@@ -1,0 +1,17 @@
+.v-select {
+
+    &.v-text-field {
+        padding-top: 0;
+        margin-top:  0;
+    }
+
+    &.v-input {
+        $self: &;
+    }
+}
+
+.v-text-field > .v-input__control > .v-input__slot:before,
+.v-text-field > .v-input__control > .v-input__slot:after {
+    display: none !important;
+    content: none !important;
+}

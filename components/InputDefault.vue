@@ -13,6 +13,7 @@
             :value="value"
             :counter="counter"
             :rules="rules"
+            :readonly="readonly"
             solo
             @input="val => $emit('input', val)"
         >
@@ -67,6 +68,11 @@ export default {
         },
         
         darkBorder: {
+            type:    Boolean,
+            default: false,
+        },
+        
+        readonly: {
             type:    Boolean,
             default: false,
         },
