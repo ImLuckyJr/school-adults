@@ -11,9 +11,20 @@
             :placeholder="placeholder"
             :type="type"
             :value="value"
+            :counter="counter"
+            :rules="rules"
             solo
             @input="val => $emit('input', val)"
-        ></v-text-field>
+        >
+            <template v-slot:append>
+                <v-icon
+                    v-if="appendIcon"
+                    @click="$emit('click-append-icon')"
+                >{{ appendIcon }}
+                </v-icon>
+                <slot name="append"></slot>
+            </template>
+        </v-text-field>
     </div>
 </template>
 
@@ -50,6 +61,11 @@ export default {
             default: '',
         },
         
+        appendIcon: {
+            type:    String,
+            default: '',
+        },
+        
         darkBorder: {
             type:    Boolean,
             default: false,
@@ -58,6 +74,16 @@ export default {
         hideDetails: {
             type:    Boolean,
             default: false,
+        },
+        
+        counter: {
+            type:    Number,
+            default: null,
+        },
+        
+        rules: {
+            type:    Array,
+            default: () => [],
         },
     },
     data() {
@@ -72,6 +98,11 @@ export default {
             classes['dark-border'] = this.darkBorder;
             
             return classes;
+        },
+    },
+    methods:  {
+        focus() {
+            if (this.$refs[this.refName]) this.$refs[this.refName].focus();
         },
     },
 };

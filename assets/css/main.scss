@@ -71,5 +71,10 @@ div[role=group] {
 }
 
 .v-ripple__container {
-    display:none !important;
+    display: none !important;
+}
+
+.toasted-container.top-right {
+    top:   8% !important;
+    right: 2% !important;
 }

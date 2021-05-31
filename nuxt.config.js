@@ -45,7 +45,21 @@ export default {
         '@nuxtjs/axios',
         // https://go.nuxtjs.dev/pwa
         '@nuxtjs/pwa',
+        '@nuxtjs/toast',
     ],
+    
+    toast: {
+        position:     'top-right',
+        duration:     7000,
+        keepOnHover:  true,
+        closeOnSwipe: true,
+        action:       {
+            icon:    'close',
+            onClick: (e, toastObject) => {
+                toastObject.goAway(0);
+            },
+        },
+    },
     
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {},

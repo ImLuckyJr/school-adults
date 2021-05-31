@@ -4,110 +4,146 @@
         class="section tw-flex tw-flex-row tw-mt-10"
     >
         <div class="tw-w-full tw-mb-32">
-            <div class="title">
-                <h2>Регистрация</h2>
-            </div>
-            
-            <div class="tw-flex tw-flex-row tw-gap-x-32 tw-mb-4">
-                <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex tw-flex-col">
-                    <InputDefault
-                        v-model="lastname"
-                        dark-border
-                        label="Фамилия"
-                        placeholder="Введите фамилию"
-                    />
-                    <InputDefault
-                        v-model="name"
-                        dark-border
-                        label="Имя"
-                        placeholder="Введите имя"
-                    />
-                    <InputDefault
-                        v-model="birthday"
-                        dark-border
-                        label="Дата рождения"
-                        placeholder="__.__.____"
-                    />
-                    <InputDefault
-                        v-model="gender"
-                        dark-border
-                        label="Пол"
-                        placeholder="Ваш пол"
-                    />
+            <v-form
+                ref="registerForm"
+                v-model="formValid"
+                lazy-validation
+            >
+                <div class="title">
+                    <h2>Регистрация</h2>
                 </div>
                 
-                <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex tw-flex-col">
-                    <InputDefault
-                        v-model="email"
-                        dark-border
-                        label="Email"
-                        type="email"
-                        placeholder="Укажите email"
-                    />
-                    <InputDefault
-                        v-model="phone"
-                        dark-border
-                        label="Телефон"
-                        placeholder="+7 (___) ___-__-__"
-                    />
-                    <InputDefault
-                        v-model="password"
-                        dark-border
-                        label="Пароль"
-                        placeholder="Укажите пароль"
-                        type="password"
-                    />
-                    <InputDefault
-                        v-model="repeatPassword"
-                        dark-border
-                        label="Повторите пароль"
-                        placeholder="Укажите пароль"
-                        type="password"
-                    />
-                </div>
-            </div>
-            
-            <div class="tw-flex tw-flex-row tw-gap-x-32 tw-mb-4">
-                <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex">
-                    <div class="btn-auth google">
-                        Продолжить с помощью Google
+                <div class="tw-flex tw-flex-row tw-gap-x-32 tw-mb-4">
+                    <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex tw-flex-col">
+                        <InputDefault
+                            v-model="form.lastname"
+                            :counter="formLimits.lastname"
+                            :rules="formRules.default"
+                            dark-border
+                            label="Фамилия"
+                            placeholder="Введите фамилию"
+                            ref-name="lastname"
+                        />
+                        <InputDefault
+                            v-model="form.name"
+                            :counter="formLimits.name"
+                            :rules="formRules.default"
+                            dark-border
+                            label="Имя"
+                            placeholder="Введите имя"
+                            ref-name="name"
+                        />
+                        <DateDefault
+                            v-model="form.birthday"
+                            :rules="formRules.birthday"
+                            dark-border
+                            label="Дата рождения"
+                            placeholder="__.__.____"
+                            ref-name="birthday"
+                        />
+                        <!--<InputDefault-->
+                        <!--    v-model="form.birthday"-->
+                        <!--    :rules="formRules.birthday"-->
+                        <!--    dark-border-->
+                        <!--    label="Дата рождения"-->
+                        <!--    placeholder="__.__.____"-->
+                        <!--    ref-name="birthday"-->
+                        <!--/>-->
+                        <InputDefault
+                            v-model="form.gender"
+                            dark-border
+                            label="Пол"
+                            placeholder="Ваш пол"
+                            ref-name="gender"
+                        />
+                    </div>
+                    
+                    <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex tw-flex-col">
+                        <InputDefault
+                            v-model="form.email"
+                            :counter="formLimits.email"
+                            :rules="formRules.email"
+                            dark-border
+                            label="Email"
+                            placeholder="Укажите email"
+                            ref-name="email"
+                            type="email"
+                        />
+                        <InputDefault
+                            v-model="form.phone"
+                            :rules="formRules.default"
+                            dark-border
+                            label="Телефон"
+                            placeholder="+7 (___) ___-__-__"
+                            ref-name="phone"
+                        />
+                        <InputDefault
+                            v-model="form.password"
+                            :rules="formRules.password"
+                            dark-border
+                            label="Пароль"
+                            placeholder="Укажите пароль"
+                            ref-name="password"
+                            type="password"
+                        />
+                        <InputDefault
+                            v-model="form.passwordConfirm"
+                            :rules="formRules.passwordConfirm"
+                            dark-border
+                            label="Повторите пароль"
+                            placeholder="Укажите пароль"
+                            ref-name="passwordConfirm"
+                            type="password"
+                        />
                     </div>
                 </div>
                 
-                <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex">
-                    <div class="btn-auth vk">
-                        Продолжить с помощью ВКонтакте
+                <div class="tw-flex tw-flex-row tw-gap-x-32 tw-mb-4">
+                    <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex">
+                        <div class="btn-auth google">
+                            Продолжить с помощью Google
+                        </div>
+                    </div>
+                    
+                    <div class="2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full tw-flex">
+                        <div class="btn-auth vk">
+                            Продолжить с помощью ВКонтакте
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="tw-flex tw-flex-row tw-mb-4">
-                <div class="tw-w-full">
-                    <v-checkbox
-                        v-model="agreeTerms"
-                        class="agree-terms-checkbox"
-                        off-icon="check_box_outline_blank"
-                        on-icon="check_box"
-                    >
-                        <template v-slot:label>
-                            <div>Я соглашаюсь с <a
-                                href="/agree-terms"
-                                target="_blank"
-                                @click="openAgreeTermsPage"
-                            >
-                                политикой конфиденциальности
-                            </a>
-                            </div>
-                        </template>
-                    </v-checkbox>
+                
+                <div class="tw-flex tw-flex-row tw-mb-4">
+                    <div class="tw-w-full">
+                        <v-checkbox
+                            v-model="form.agreeTerms"
+                            class="agree-terms-checkbox"
+                            off-icon="check_box_outline_blank"
+                            on-icon="check_box"
+                        >
+                            <template v-slot:label>
+                                <div>Я соглашаюсь с <a
+                                    href="/agree-terms"
+                                    target="_blank"
+                                    @click="openAgreeTermsPage"
+                                >
+                                    политикой конфиденциальности
+                                </a>
+                                </div>
+                            </template>
+                        </v-checkbox>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="tw-flex tw-flex-row tw-justify-center">
-                <div class="2xl:tw-w-1/3 xl:tw-w-1/3 lg:tw-w-1/3 md:tw-w-1/2 sm:tw-w-full">
-                    <Avatar v-model="avatar"/>
+                
+                <div class="tw-flex tw-flex-row tw-justify-center">
+                    <div class="2xl:tw-w-1/3 xl:tw-w-1/3 lg:tw-w-1/3 md:tw-w-1/2 sm:tw-w-full">
+                        <Avatar
+                            v-model="form.avatar"
+                            show-submit-form
+                            @submit-form="sendFormToRegister"
+                        />
+                    </div>
                 </div>
-            </div>
+            </v-form>
         </div>
     </section>
 </template>
@@ -117,23 +153,91 @@ export default {
     name: 'register',
     data() {
         return {
-            lastname:       null,
-            name:           null,
-            birthday:       null,
-            gender:         null,
-            email:          null,
-            phone:          null,
-            password:       null,
-            repeatPassword: null,
-            agreeTerms:     false,
-            avatar:         null,
+            formValid: true,
+            
+            form: {
+                lastname:        null,
+                name:            null,
+                birthday:        null,
+                gender:          1,
+                email:           null,
+                phone:           null,
+                password:        null,
+                passwordConfirm: null,
+                agreeTerms:      false,
+                avatar:          null,
+            },
+            
+            formLimits: {
+                lastname: 250,
+                name:     250,
+                email:    250,
+            },
         };
     },
-    methods: {
+    computed: {
+        formRules() {
+            return {
+                email: [
+                    v => !!v || 'Обязательное поле',
+                    v => /.+@.+\..+/.test(v) || 'Введите корректный Email',
+                ],
+                
+                password: [
+                    v => !!v || 'Обязательное поле',
+                    v => (v && v.length >= 8) || 'Минимальная длина пароля - 8 символов',
+                    v => (v && v.length <= 50) || 'Максимальная длина пароля - 50 символов',
+                ],
+                
+                passwordConfirm: [
+                    v => !!v || 'Обязательное поле',
+                    v => v === this.form.password || 'Пароли не совпадают',
+                ],
+                
+                birthday: [
+                    v => !!v || 'Обязательное поле',
+                    v => v === '__.__.____'
+                        || v === '____-__-__'
+                        || v === null
+                        || v === ''
+                        || !isNaN(Date.parse(v.split('.').reverse().join('/')))
+                        || 'Укажите корректную дату',
+                    v => v === '__.__.____'
+                        || v === '____-__-__'
+                        || v === null
+                        || v === ''
+                        || new Date(v.split('.').reverse().join('/')).getTime() <= Date.now()
+                        || 'Дата не может быть будущим',
+                ],
+                
+                default: [
+                    v => !!v || 'Обязательное поле',
+                ],
+            };
+        },
+    },
+    methods:  {
         openAgreeTermsPage(event) {
             event.stopPropagation();
             event.preventDefault();
             window.open('/agree-terms', '_blank');
+        },
+        
+        async sendFormToRegister() {
+            try {
+                const validate = this.$refs.registerForm.validate();
+                
+                if (validate) {
+                
+                }
+                else {
+                    this.$toast.error('Вы не заполнили все необходимые поля');
+                }
+            }
+            catch (err) {
+                console.error('ERROR SEND FORM TO REGISTER');
+                console.error(err);
+            }
         },
     },
 };

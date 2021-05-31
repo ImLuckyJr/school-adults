@@ -1,7 +1,9 @@
 <template>
     <div class="avatar">
         <div class="avatar__wrapper">
-            <div class="avatar__circle"></div>
+            <div
+                class="avatar__circle"
+            ></div>
             
             <div class="avatar__choose">
                 <div class="btn btn--underline">
@@ -9,9 +11,16 @@
                 </div>
             </div>
             
-            <div class="avatar__send">
+            <div
+                v-if="showSubmitForm"
+                class="avatar__send"
+            >
                 <div class="btn btn--circle">
-                    <button type="button">Отправить</button>
+                    <button
+                        type="button"
+                        @click="$emit('submit-form')"
+                    >Отправить
+                    </button>
                 </div>
             </div>
         </div>
@@ -24,6 +33,11 @@ export default {
     props: {
         value: {
             required: true,
+        },
+        
+        showSubmitForm: {
+            type:    Boolean,
+            default: false,
         },
     },
 };
@@ -42,11 +56,12 @@ export default {
     }
     
     &__circle {
-        border-radius: 50%;
-        border:        3px solid #A8D1E7;
-        width:         250px;
-        height:        250px;
-        margin-bottom: 1rem;
+        border-radius:    50%;
+        border:           3px solid #A8D1E7;
+        width:            250px;
+        height:           250px;
+        margin-bottom:    1rem;
+        background-image: url('~/assets/images/default_user.svg');
     }
     
     &__send {
