@@ -1,13 +1,29 @@
 <template>
     <div class="avatar">
         <div class="avatar__wrapper">
-            <div
-                class="avatar__circle"
-            ></div>
+            <div class="avatar__circle">
+                <v-img
+                    ref="avatar"
+                    :lazy-src="require('~/assets/images/default_user.svg')"
+                    :src="require('~/assets/images/default_user.svg')"
+                />
+            </div>
             
             <div class="avatar__choose">
                 <div class="btn btn--underline">
-                    <button type="button">Выбрать аватар</button>
+                    <button
+                        type="button"
+                        @click="$refs.chooseAvatar.$refs.input.click()"
+                    >Выбрать аватар
+                    </button>
+                    
+                    <v-file-input
+                        ref="chooseAvatar"
+                        :value="value"
+                        accept="image/png, image/jpeg, image/bmp, image/gif"
+                        style="display: none;"
+                        @change="changeFileInput"
+                    />
                 </div>
             </div>
             
@@ -29,8 +45,8 @@
 
 <script>
 export default {
-    name:  'Avatar',
-    props: {
+    name:    'Avatar',
+    props:   {
         value: {
             required: true,
         },
@@ -38,6 +54,23 @@ export default {
         showSubmitForm: {
             type:    Boolean,
             default: false,
+        },
+    },
+    methods: {
+        changeFileInput(File) {
+            if (File.size <= 10485760) {
+                const avatar = document.querySelector('.avatar__circle .v-image__image.v-image__image--cover');
+                this.$emit('input', File);
+                const reader = new FileReader();
+                reader.readAsDataURL(File);
+                
+                reader.onloadend = () => {
+                    avatar.style.backgroundImage = `url(${ reader.result })`;
+                };
+            }
+            else {
+                this.$toast.error('Максимальный размер файла 10 Мб');
+            }
         },
     },
 };
@@ -56,12 +89,12 @@ export default {
     }
     
     &__circle {
-        border-radius:    50%;
-        border:           3px solid #A8D1E7;
-        width:            250px;
-        height:           250px;
-        margin-bottom:    1rem;
-        background-image: url('~/assets/images/default_user.svg');
+        border-radius: 50%;
+        border:        3px solid #A8D1E7;
+        width:         250px;
+        height:        250px;
+        margin-bottom: 1rem;
+        overflow:      hidden;
     }
     
     &__send {

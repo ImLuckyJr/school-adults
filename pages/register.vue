@@ -69,6 +69,7 @@
                             label="Телефон"
                             placeholder="+7 (___) ___-__-__"
                             ref-name="phone"
+                            mask="+7 (###) ###-##-##"
                         />
                         <InputDefault
                             v-model="form.password"
