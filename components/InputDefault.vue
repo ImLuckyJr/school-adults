@@ -15,6 +15,7 @@
             :rules="rules"
             :readonly="readonly"
             solo
+            v-mask="mask"
             @input="val => $emit('input', val)"
         >
             <template v-slot:append>
@@ -90,6 +91,11 @@ export default {
         rules: {
             type:    Array,
             default: () => [],
+        },
+        
+        mask: {
+            type:    String,
+            default: '',
         },
     },
     data() {
