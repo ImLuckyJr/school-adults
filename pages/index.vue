@@ -297,6 +297,7 @@
                         <ButtonDefault
                             align="right"
                             label="Отправить"
+                            class="btn--default"
                         />
                     </div>
                 </div>
@@ -384,7 +385,7 @@ export default {
         
         .to-courses {
             bottom: 0;
-            left:   110px;
+            left:   130px;
         }
     }
     
