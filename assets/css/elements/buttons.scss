@@ -8,37 +8,42 @@ button:focus {
     justify-content: center;
     align-items:     center;
 
-    button {
-        border-radius:    15px;
-        background-color: #F76D6D;
-        color:            white;
-        font-size:        24px;
-        line-height:      1em;
+    button, a {
+        display:          flex !important;
+        flex-direction:   row !important;
+        justify-content:  center !important;
+        align-items:      center !important;
+        text-align:       center !important;
+        border-radius:    15px !important;
+        background-color: #F76D6D !important;
+        color:            white !important;
+        font-size:        24px !important;
+        line-height:      1em !important;
     }
 
     &--default {
-        button {
-            padding: 15px 30px;
+        button, a {
+            padding: 15px 30px !important;
         }
     }
 
     &--circle {
-        button {
-            width:         170px;
-            height:        170px;
-            border-radius: 50%;
-            font-size:     28px;
-            box-shadow:    0 0 15px rgba(0, 0, 0, 0.45);
+        button, a {
+            width:         170px !important;
+            height:        170px !important;
+            border-radius: 50% !important;
+            font-size:     28px !important;
+            box-shadow:    0 0 15px rgba(0, 0, 0, 0.45) !important;
         }
     }
 
     &--underline {
-        button {
+        button, a {
             background-color: transparent !important;
-            font-size:        24px;
-            line-height:      32px;
-            color:            #24315E;
-            border-bottom:    2px solid #24315E;
+            font-size:        24px !important;
+            line-height:      32px !important;
+            color:            #24315E !important;
+            border-bottom:    2px solid #24315E !important;
             border-radius:    0 !important;
         }
     }

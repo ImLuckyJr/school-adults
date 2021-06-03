@@ -26,7 +26,7 @@
                 </div>
                 
                 <div class="btn btn--circle to-courses">
-                    <button type="button">Перейти к курсам</button>
+                    <NuxtLink to="/courses">Перейти к курсам</NuxtLink>
                 </div>
             </div>
             <div class="advices tw-pt-6">
