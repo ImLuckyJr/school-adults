@@ -61,7 +61,9 @@
             :key="courseIndex"
             class="course__wrapper"
           >
-            <div class="course__avatar"></div>
+            <div class="course__avatar">
+                <!-- img :src="this.$axios.defaults.baseURL + course.fields.avatar" -->
+            </div>
             <div class="course__info">
               <div class="course__info__title">{{ course.fields.title }}</div>
               <div class="course__info__description">
