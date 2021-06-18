@@ -76,11 +76,11 @@ export default {
             local:    {
                 endpoints: {
                     login:  {
-                        url:          'api/auth/token/login/',
+                        url:          'auth/token/login/',
                         method:       'post',
                         propertyName: 'auth_token',
                     },
-                    logout: { url: 'api/auth/token/logout/', method: 'post' },
+                    logout: { url: 'auth/token/logout/', method: 'post' },
                     user:   {
                         url:          'account/profile/',
                         method:       'get',
