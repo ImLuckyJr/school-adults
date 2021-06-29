@@ -43,15 +43,11 @@
           "
         >
           <div
-            v-for="(part, partIndex) in allCoursesPartitions"
+            v-for="(part, partIndex) in courses_partitions"
             :key="partIndex"
-            :class="{
-              'disable-button': part.disableButton,
-              active: part.active,
-            }"
             class="courses__partition"
           >
-            {{ part.label }}
+            {{ part.title }}
           </div>
         </div>
 
@@ -61,22 +57,30 @@
             :key="courseIndex"
             class="course__wrapper"
           >
-            <div class="course__avatar">
-                <!-- img :src="this.$axios.defaults.baseURL + course.fields.avatar" -->
+            <div
+              class="course__avatar"
+              v-bind:style="{
+                'background-image':
+                  'url(' + $axios.defaults.baseURL + course.avatar + ')',
+              }"
+            >
+              <!-- img :src="this.$axios.defaults.baseURL + course.avatar" -->
             </div>
             <div class="course__info">
-              <div class="course__info__title">{{ course.fields.title }}</div>
+              <div class="course__info__title">{{ course.title }}</div>
               <div class="course__info__description">
-                {{ course.fields.description }}
+                {{ course.description }}
               </div>
               <div class="course__info__status">
                 <div class="users">
-                  {{ course.fields.users ? course.fields.users : 505 }}
+                  {{ course.users ? course.users : 505 }}
                 </div>
-                <div class="rating">{{ course.fields.rating }}</div>
-                <div class="time">{{ course.fields.difficulty }}</div>
+                <div class="rating">{{ course.rating }}</div>
+                <div class="time">{{ course.difficulty }}</div>
               </div>
-              <div class="course__info__likes">{{ course.fields.likes ? course.fields.likes : 123 }}</div>
+              <div class="course__info__likes">
+                {{ course.likes ? course.likes : 123 }}
+              </div>
             </div>
           </div>
         </div>
@@ -90,13 +94,25 @@ export default {
   name: "courses",
   data() {
     return {
-      courses: []
+      courses: [],
+      courses_partitions: [
+        {
+          title: "Все курсы",
+          restrictions: "Без ограничений",
+        },
+      ],
     };
   },
   async fetch() {
-    this.courses = JSON.parse(await this.$axios.$get(
-      this.$axios.defaults.baseURL + "courses/list"
-    ));
+    this.courses = await this.$axios.$get(
+      this.$axios.defaults.baseURL + "courses/get/"
+    );
+    let categoties = await this.$axios.$get(
+      this.$axios.defaults.baseURL + "courses/categoties/"
+    );
+    categoties.forEach( element => {
+      this.courses_partitions.push(element);
+    });
   },
   mounted() {
     this.$nextTick(() => {
