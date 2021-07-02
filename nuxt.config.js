@@ -67,7 +67,7 @@ export default {
     
     // Axios module configuration: https://go.nuxtjs.dev/config-axios http://dev.future-adults.school/
     axios: {
-        baseURL:        'http://api.future-adults.school/',
+        baseURL:        'https://api.future-adults.school/',
         xsrfCookieName: 'csrftoken',
         xsrfHeaderName: 'X-CSRFTOKEN',
     },
