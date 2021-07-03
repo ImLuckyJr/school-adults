@@ -3,7 +3,12 @@
         class="btn"
         :class="getClasses"
     >
-        <button type="button">{{ label }}</button>
+        <button
+            v-if="label"
+            type="button"
+        >{{ label }}
+        </button>
+        <slot></slot>
     </div>
 </template>
 
@@ -23,7 +28,7 @@ export default {
         
         label: {
             type:    String,
-            default: 'Нажми меня',
+            default: '',
         },
         
         align: {

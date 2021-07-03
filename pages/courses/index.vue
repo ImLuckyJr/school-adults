@@ -6,7 +6,7 @@
         >
             <div class="tw-flex tw-flex-row tw-justify-between">
                 <div class="2xl:tw-w-auto xl:tw-w-auto lg:tw-w-auto md:tw-w-full sm:tw-w-full">
-                    <div class="title">
+                    <div class="title title--left">
                         <h2>Курсы</h2>
                     </div>
                 </div>
@@ -27,7 +27,10 @@
                     </div>
                 </div>
                 
-                <div class="courses__body">
+                <div
+                    v-if="courses.length > 0"
+                    class="courses__body"
+                >
                     <div
                         v-for="(course, courseIndex) in courses"
                         :key="courseIndex"
@@ -39,7 +42,6 @@
                                 'background-image':
                                   'url(' + $axios.defaults.baseURL + course.avatar + ')',
                             }"
-                            @click=""
                         >
                             <NuxtLink
                                 :to="`/courses/${course.path}`"
@@ -49,6 +51,7 @@
                             </NuxtLink>
                         </div>
                         <div class="course__info">
+                            <div class="course__info__bg"/>
                             <div class="course__info__title">{{ course.title }}</div>
                             <div class="course__info__description">
                                 {{ course.description }}
@@ -61,8 +64,31 @@
                                 <div class="time">{{ course.difficulty }}</div>
                             </div>
                             <div class="course__info__likes">
-                                {{ course.likes ? course.likes : 123 }}
+                                <span>{{ course.likes ? course.likes : 555 }}</span>
                             </div>
+                        </div>
+    
+                        <div class="course__action sign-up">
+                            <ButtonDefault
+                                align="right"
+                                class="btn--default"
+                                label="Записаться"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div
+                    v-else
+                    class="tw-animate-pulse courses__body"
+                >
+                    <div class="course__wrapper">
+                        <div class="course__avatar"/>
+                        <div class="course__info">
+                            <div class="course__info__bg"/>
+                            <div class="course__info__title"/>
+                            <div class="course__info__description"/>
+                            <div class="course__info__status"/>
+                            <div class="course__info__likes"/>
                         </div>
                     </div>
                 </div>
@@ -94,7 +120,7 @@ export default {
             console.error(err);
             this.$toast.error('Произошла ошибка при получении курсов. Попробуйте позже или обратитесь в техподдержку.');
         }
-        
+
         try {
             let categories = await this.$axios.$get(
                 this.$axios.defaults.baseURL + 'courses/categories/',
