@@ -281,7 +281,7 @@ export default {
         if (validate) {
           this.$axios
             .$post(
-              this.$axios.defaults.baseURL + "account/create/",
+              this.$axios.defaults.baseURL + "account/register/",
               this.form
             )
             .then(
