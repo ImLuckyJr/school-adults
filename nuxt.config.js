@@ -82,7 +82,7 @@ export default {
                     },
                     logout: { url: 'auth/token/logout/', method: 'post' },
                     user:   {
-                        url:          'account/profile/',
+                        url:          'account/person/',
                         method:       'get',
                         propertyName: false,
                     },
