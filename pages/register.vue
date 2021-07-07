@@ -215,7 +215,7 @@ export default {
           label: "Женский",
         },
         {
-          value: 2,
+          value: 0,
           label: "Мужской",
         },
       ],
@@ -279,17 +279,31 @@ export default {
         const validate = this.$refs.registerForm.validate();
 
         if (validate) {
+          let formData = new FormData();
+          formData.append("avatar", this.form.avatar, this.form.avatar.name);
+          formData.append("last_name", this.form.last_name);
+          formData.append("first_name", this.form.first_name);
+          formData.append("birthday", this.form.birthday);
+          formData.append("gender", this.form.gender);
+          formData.append("email", this.form.email);
+          formData.append("phone", this.form.phone);
+          formData.append("password", this.form.password);
           this.$axios
             .$post(
               this.$axios.defaults.baseURL + "account/register/",
-              this.form
+              formData,
+              {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              }
             )
             .then(
               (response) => {
                 console.log("succsess");
               },
               (error) => {
-                  this.$toast.error(error);
+                this.$toast.error(error);
               }
             );
         } else {
