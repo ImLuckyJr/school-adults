@@ -98,7 +98,8 @@ export default {
                 });
             }
             catch (error) {
-                this.$toast.error('Неверные данные');
+                this.$auth.logout();
+                this.$toast.error('Ошибка входа');
             }
         },
         

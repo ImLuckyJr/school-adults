@@ -109,6 +109,7 @@ export default {
     pwa: {
         manifest: {
             lang: 'ru',
+            name: 'Школа будущих взрослых'
         },
     },
 
