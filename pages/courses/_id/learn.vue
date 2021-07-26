@@ -23,7 +23,7 @@
                         >
                             <v-expansion-panel-header>Item</v-expansion-panel-header>
                             <v-expansion-panel-content>
-                                <div v-for="(item,i) in 5">
+                                <div v-for="(item,i) in 5" :key="i">
                                     часть {{ i + 1 }}
                                 </div>
                             </v-expansion-panel-content>
