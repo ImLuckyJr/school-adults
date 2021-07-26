@@ -69,7 +69,7 @@
 			>
 				<template v-for="(elem, id) in elements">
 					<div
-						class="tw-pt-6 tw-w-5/6 tw-place-self-center"
+						class="tw-pt-12 tw-w-5/6 tw-place-self-center tw-mb-12  tw-pointer-events-none"
 						:key="id"
 						v-html="getElement(elem)"
 					></div>
