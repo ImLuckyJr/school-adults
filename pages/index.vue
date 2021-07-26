@@ -199,7 +199,7 @@
                 <div class="teachers tw-flex tw-flex-row tw-flex-wrap tw-justify-between tw-gap-y-10">
                     <div class="teacher tw-flex tw-items-center 2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full">
                         <div
-                            :style="{ 'background-image': `url(${require('~/assets/images/teacher-Egor.png')}` }"
+                            :style="{ 'background-image': `url(${require('~/assets/images/teacher-Egor.png')} ` }"
                             class="teacher__avatar"
                         ></div>
                         <div class="teacher__body tw-flex tw-flex-col">
@@ -224,7 +224,7 @@
                     </div>
                     <div class="teacher tw-flex tw-items-center 2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full">
                         <div
-                            :style="{ 'background-image': `url(${require('~/assets/images/teacher-Alexandra.png')}` }"
+                            :style="{ 'background-image': `url(${require('~/assets/images/teacher-Alexandra.png')} ` }"
                             class="teacher__avatar"
                         ></div>
                         <div class="teacher__body tw-flex tw-flex-col">
@@ -237,7 +237,7 @@
                     </div>
                     <div class="teacher tw-flex tw-items-center 2xl:tw-w-1/2 xl:tw-w-1/2 lg:tw-w-1/2 md:tw-w-full sm:tw-w-full">
                         <div
-                            :style="{ 'background-image': `url(${require('~/assets/images/teacher-Maria.png')}` }"
+                            :style="{ 'background-image': `url(${require('~/assets/images/teacher-Maria.png')} ` }"
                             class="teacher__avatar"
                         ></div>
                         <div class="teacher__body tw-flex tw-flex-col">
