@@ -71,6 +71,7 @@ export default {
         xsrfHeaderName: 'X-CSRFTOKEN',
     },
     auth: {
+        plugins:['~/plugins/auth',],
         strategies: {
             local: {
                 endpoints: {

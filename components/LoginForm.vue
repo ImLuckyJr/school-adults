@@ -98,8 +98,7 @@ export default {
                 });
             }
             catch (error) {
-                this.$auth.logout();
-                this.$toast.error('Ошибка входа');
+                this.$toast.error('Неверный логин или пароль');
             }
         },
         
