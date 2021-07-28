@@ -1,0 +1,37 @@
+.accodion {
+	$self: &;
+
+	&__button {
+		cursor: pointer;
+		width: 100%;
+		text-align: left;
+	}
+
+	&__item {
+		$self: &;
+
+		&__button {
+			cursor: pointer;
+			width: 100%;
+			text-align: left;
+
+			.accodion__title {
+				font-family: "AdamCG", sans-serif;
+				font-size: 24px;
+				color: #24315e;
+			}
+
+			.accodion__subtitle {
+				font-family: "AdamCG", sans-serif;
+				font-size: 18px;
+				color: #24315e;
+			}
+		}
+
+		&__panel {
+			font-family: "Roboto-Regular", sans-serif;
+			font-size: 18px;
+			color: #374785;
+		}
+	}
+}

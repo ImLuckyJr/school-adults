@@ -63,42 +63,33 @@
 		</section>
 
 		<section class="section tw-mt-16 courses">
-			<div
-				v-if="elements"
-				class="tw-space-y-6 tw-flex tw-flex-col tw-justify-items-center"
-			>
-				<template v-for="(elem, id) in elements">
-					<div
-						class="
-							tw-pt-12
-							tw-w-5/6
-							tw-place-self-center
-							tw-mb-12
-							tw-pointer-events-none
-						"
-						:key="id"
-						v-html="getElement(elem)"
-					></div>
-				</template>
-			</div>
-		</section>
-
-		<section id="course__sections" class="section tw-mt-16 courses">
-			<div v-if="sections" class="courses__body tw-space-y-6">
-				<h2 class="tw-text-center">Разделы курса</h2>
+			<div class="courses__about">
 				<div
-					class="
-						tw-grid tw-items-center tw-justify-center tw-grid-cols-2 tw-gap-4
-					"
+					v-if="elements"
+					class="tw-space-y-6 tw-flex tw-flex-col tw-justify-items-center"
 				>
-					<template v-for="section in sections">
-						<CourseElementSections :key="section.id" :title="section.title">
-							<div v-html="section.description"></div>
-						</CourseElementSections>
+					<template v-for="(elem, id) in elements">
+						<div
+							class="
+								tw-pt-12
+								tw-w-5/6
+								tw-place-self-center
+								tw-mb-12
+								tw-pointer-events-none
+							"
+							:key="id"
+							v-html="getElement(elem)"
+						></div>
 					</template>
+				</div>
+				<div v-if="sections" class="tw-pt-20">
+					<h2 class="tw-text-center">Разделы курса</h2>
+					<El-Accodion :elements="sections"/>
 				</div>
 			</div>
 		</section>
+
+		<section id="course__sections" class="section tw-mt-16 courses"></section>
 	</div>
 </template>
 
@@ -140,7 +131,6 @@ export default {
 			console.log("response");
 			console.log(response);
 
-			
 			this.sections = response.sections;
 			this.elements = response.about.sort((a, b) =>
 				a.id > b.id ? 1 : b.id > a.id ? -1 : 0
@@ -175,4 +165,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>
