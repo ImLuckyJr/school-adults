@@ -69,7 +69,13 @@
 			>
 				<template v-for="(elem, id) in elements">
 					<div
-						class="tw-pt-12 tw-w-5/6 tw-place-self-center tw-mb-12  tw-pointer-events-none"
+						class="
+							tw-pt-12
+							tw-w-5/6
+							tw-place-self-center
+							tw-mb-12
+							tw-pointer-events-none
+						"
 						:key="id"
 						v-html="getElement(elem)"
 					></div>
@@ -112,30 +118,29 @@ export default {
 	async fetch() {
 		try {
 			const response = await this.$axios.$get(
-				this.$axios.defaults.baseURL + "courses/get/" + this.$route.params.id
+				`${this.$axios.defaults.baseURL}courses/get/${this.$route.params.id}`
 			);
-			console.log("response");
-			console.log(response);
 			this.form = response;
 		} catch (err) {
+			if (err.response.status === 404) {
+				return this.$nuxt.error({ statusCode: 404, message: err.message });
+			}
 			console.log("ERROR GET ALL COURSES");
 			console.error(err);
 			this.$toast.error(
-				"Произошла ошибка при получении курсов. Попробуйте позже или обратитесь в техподдержку."
+				"Произошла ошибка при получении курса. Попробуйте позже или обратитесь в техподдержку."
 			);
+			return false;
 		}
 
 		try {
 			const response = await this.$axios.$get(
-				this.$axios.defaults.baseURL +
-					"courses/get/" +
-					this.$route.params.id +
-					"/about"
+				`${this.$axios.defaults.baseURL}courses/get/${this.$route.params.id}/about`
 			);
 			console.log("response");
 			console.log(response);
 
-			// this.page =
+			
 			this.sections = response.sections;
 			this.elements = response.about.sort((a, b) =>
 				a.id > b.id ? 1 : b.id > a.id ? -1 : 0
