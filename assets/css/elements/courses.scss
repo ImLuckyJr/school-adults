@@ -314,5 +314,10 @@
                 bottom:   -26px;
             }
         }
-    }
+    };
+
+    &__about {
+        background-image: url('~/assets/images/courses/about_fon.svg');
+        background-size: cover;
+    };
 }
