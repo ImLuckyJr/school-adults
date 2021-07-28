@@ -16,8 +16,9 @@
                 </div>
             </div>
             
-            <div class="tw-flex tw-flex-row tw-justify-between tw-gap-24 courses__body">
-                <div class=" courses__partitions 2xl:tw-w-1/6 xl:tw-w-1/6 lg:tw-w-16 md:tw-w-full sm:tw-w-full">
+            <div class="tw-flex tw-flex-row   courses__body">
+                <div class="courses__partitions tw-flex-shrink-0  tw-w-64 ">
+                    <!-- 2xl:tw-w-1/6 xl:tw-w-1/6 lg:tw-w-16 md:tw-w-full sm:tw-w-full -->
                     <div
                         v-for="(part, partIndex) in courses_partitions"
                         :key="partIndex"
@@ -29,7 +30,7 @@
                 
                 <div
                     v-if="courses.length > 0"
-                    class="courses__body"
+                    class="courses__body tw-flex-1 tw-grid tw-grid-cols-1 tw-gap-6"
                 >
                     <div
                         v-for="(course, courseIndex) in courses"
@@ -79,7 +80,7 @@
                 </div>
                 <div
                     v-else
-                    class="tw-animate-pulse courses__body"
+                    class="tw-animate-pulse courses__body tw-flex-1 tw-grid tw-grid-cols-1 tw-gap-6"
                 >
                     <div class="course__wrapper">
                         <div class="course__avatar"/>
@@ -99,7 +100,7 @@
 
 <script>
 export default {
-    name: 'index',
+    name: 'Courses-index',
     data() {
         return {
             courses:            [],
@@ -113,7 +114,8 @@ export default {
     },
     async fetch() {
         try {
-            this.courses = await this.$axios.$get(this.$axios.defaults.baseURL + 'courses/get/');
+            this.courses = await this.$axios.$get(`${this.$axios.defaults.baseURL}courses/get/`);
+
         }
         catch (err) {
             console.log('ERROR GET ALL COURSES');
@@ -122,9 +124,7 @@ export default {
         }
 
         try {
-            let categories = await this.$axios.$get(
-                this.$axios.defaults.baseURL + 'courses/categories/',
-            );
+            let categories = await this.$axios.$get(`${this.$axios.defaults.baseURL}courses/categories/`);
             this.courses_partitions = this.courses_partitions.concat(categories);
         }
         catch (error) {
